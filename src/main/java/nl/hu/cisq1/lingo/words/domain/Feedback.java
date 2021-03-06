@@ -8,6 +8,11 @@ import java.util.Objects;
 
 public class Feedback {
     private String attempt;
+
+    public List<Mark> getMarks() {
+        return marks;
+    }
+
     private List<Mark> marks;
     private String hint;
 
