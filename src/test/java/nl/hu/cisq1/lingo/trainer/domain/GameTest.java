@@ -57,4 +57,21 @@ class GameTest {
 
         assertThrows(GameEndedException.class, () -> game.guessWord("woord"));
     }
+
+    @Test
+    @DisplayName("get correct progress")
+    void checkGameProgress(){
+        Game game = new Game();
+        game.startNewRound("woord");
+        assertEquals(1, game.getProgress().getRound());
+        assertEquals("w....", game.getProgress().getFeedbackList().get(0).getHint());
+    }
+
+    @Test
+    @DisplayName("get the correct round info")
+    void checkGameRounds(){
+        Game game = new Game();
+        game.startNewRound("woord");
+        assertEquals("woord", game.getRounds().get(0).getWordToGuess());
+    }
 }

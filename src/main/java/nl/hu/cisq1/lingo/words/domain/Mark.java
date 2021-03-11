@@ -4,5 +4,5 @@ public enum Mark {
     INVALID,
     ABSENT,
     PRESENT,
-    CORRECT;
+    CORRECT
 }

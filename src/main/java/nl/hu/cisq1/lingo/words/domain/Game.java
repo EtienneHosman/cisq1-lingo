@@ -35,7 +35,7 @@ public class Game {
                 this.status = Status.ENDED;
                 this.guesses = 0;
             }
-        } else if(this.status.equals(Status.ENDED)) {
+        } else {
             throw new GameEndedException();
         }
 
