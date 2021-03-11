@@ -31,4 +31,12 @@ public class Round {
         this.attempts++;
         return feedback;
     }
+
+    public String getWordToGuess() {
+        return wordToGuess;
+    }
+
+    public int getAttempts() {
+        return attempts;
+    }
 }
