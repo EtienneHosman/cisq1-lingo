@@ -18,7 +18,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.m2
-          key: ${{ runnes.os }}-sonar}}
+          key: ${{ runner.os }}-sonar}}
           restore-keys: ${{ runner.os }}-sonar
 
       - name: Build with Maven
