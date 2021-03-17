@@ -1,10 +1,18 @@
 package nl.hu.cisq1.lingo.words.domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-public class Progress {
+@Entity
+public class Progress implements Serializable {
+    @Id
+    @GeneratedValue
+    private UUID id;
     private int round = -1;
+    @OneToMany
     private List<Feedback> feedbackList = null;
 
     public Progress(){

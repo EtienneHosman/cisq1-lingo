@@ -2,12 +2,20 @@ package nl.hu.cisq1.lingo.words.domain;
 
 import nl.hu.cisq1.lingo.words.domain.exception.GameEndedException;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
+@Entity(name = "game")
 public class Game {
+    @Id
+    @GeneratedValue
+    private UUID id;
     private int guesses = 0;
+    @OneToMany
     private List<Round> rounds = new ArrayList<>();
+    @OneToOne
     private Progress progress = new Progress();
     private Status status = Status.AWAIT;
 
