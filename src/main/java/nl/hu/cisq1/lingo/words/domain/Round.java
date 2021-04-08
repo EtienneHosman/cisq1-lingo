@@ -1,9 +1,12 @@
 package nl.hu.cisq1.lingo.words.domain;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -37,6 +40,7 @@ public class Round {
                 marks.add(Mark.ABSENT);
             }
         }
+
 
         Feedback feedback = new Feedback(guess, marks);
         return feedback;

@@ -4,18 +4,13 @@ import nl.hu.cisq1.lingo.words.domain.exception.GameEndedException;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Entity
-@Table(name = "game")
+@Entity(name = "game")
 public class Game {
-
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;

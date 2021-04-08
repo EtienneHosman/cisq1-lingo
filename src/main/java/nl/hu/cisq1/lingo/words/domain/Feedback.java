@@ -6,9 +6,20 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 public class Feedback implements Serializable {
+
+    @Id
+    @GeneratedValue
+    private UUID id;
+
     private String attempt;
+    @ManyToOne
     private List<Mark> marks;
     private String hint;
 
@@ -51,26 +62,29 @@ public class Feedback implements Serializable {
     public String getHint() {
         return hint;
     }
+    public Feedback(){
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Feedback feedback = (Feedback) o;
-//        return Objects.equals(attempt, feedback.attempt) &&
-//                Objects.equals(marks, feedback.marks);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(attempt, marks);
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Feedback{" +
-//                "attempt='" + attempt + '\'' +
-//                ", marks=" + marks +
-//                '}';
-//    }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Feedback feedback = (Feedback) o;
+        return Objects.equals(attempt, feedback.attempt) &&
+                Objects.equals(marks, feedback.marks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(attempt, marks);
+    }
+
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "attempt='" + attempt + '\'' +
+                ", marks=" + marks +
+                '}';
+    }
 }
