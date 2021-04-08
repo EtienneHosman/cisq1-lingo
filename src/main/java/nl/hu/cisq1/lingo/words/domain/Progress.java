@@ -1,9 +1,11 @@
 package nl.hu.cisq1.lingo.words.domain;
 
+import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Progress {
+public class Progress implements Serializable {
     private int round = -1;
     private List<Feedback> feedbackList = null;
 

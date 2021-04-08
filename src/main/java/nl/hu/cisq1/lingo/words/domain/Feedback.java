@@ -2,11 +2,12 @@ package nl.hu.cisq1.lingo.words.domain;
 
 import nl.hu.cisq1.lingo.words.domain.Mark;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Feedback {
+public class Feedback implements Serializable {
     private String attempt;
     private List<Mark> marks;
     private String hint;
