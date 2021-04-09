@@ -23,7 +23,7 @@ public class Game {
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(CascadeType.ALL)
     private List<Round> rounds = new ArrayList<>();
-    @Column
+    @Column(columnDefinition = "longblob")
     private Progress progress = new Progress();
     @Column
     private Status status = Status.AWAIT;
