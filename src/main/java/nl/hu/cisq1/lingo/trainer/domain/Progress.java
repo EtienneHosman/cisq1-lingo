@@ -8,9 +8,6 @@ import java.util.UUID;
 
 
 public class Progress implements Serializable {
-    @Id
-    @GeneratedValue
-    private UUID id;
     private int round = -1;
     @OneToMany(fetch = FetchType.EAGER)
     @Lob
