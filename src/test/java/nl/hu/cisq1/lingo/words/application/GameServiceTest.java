@@ -1,7 +1,8 @@
 package nl.hu.cisq1.lingo.words.application;
 
-import nl.hu.cisq1.lingo.data.SpringGameRepository;
-import nl.hu.cisq1.lingo.words.domain.Game;
+import nl.hu.cisq1.lingo.trainer.application.GameService;
+import nl.hu.cisq1.lingo.trainer.data.SpringGameRepository;
+import nl.hu.cisq1.lingo.trainer.domain.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,15 +1,8 @@
-package nl.hu.cisq1.lingo.words.domain;
-
-import nl.hu.cisq1.lingo.words.domain.Mark;
+package nl.hu.cisq1.lingo.trainer.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 public class Feedback implements Serializable {

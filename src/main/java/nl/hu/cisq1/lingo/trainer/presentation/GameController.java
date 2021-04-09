@@ -1,7 +1,7 @@
-package nl.hu.cisq1.lingo.presentation;
+package nl.hu.cisq1.lingo.trainer.presentation;
 
-import nl.hu.cisq1.lingo.words.application.GameService;
-import nl.hu.cisq1.lingo.words.domain.Game;
+import nl.hu.cisq1.lingo.trainer.application.GameService;
+import nl.hu.cisq1.lingo.trainer.domain.Game;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;

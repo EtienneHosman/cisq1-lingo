@@ -1,6 +1,5 @@
-package nl.hu.cisq1.lingo.words.domain;
+package nl.hu.cisq1.lingo.trainer.domain;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;

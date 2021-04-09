@@ -1,8 +1,8 @@
 package nl.hu.cisq1.lingo.presentation;
 
-import nl.hu.cisq1.lingo.words.application.GameService;
-import nl.hu.cisq1.lingo.words.domain.Game;
-import nl.hu.cisq1.lingo.words.domain.Status;
+import nl.hu.cisq1.lingo.trainer.presentation.GameController;
+import nl.hu.cisq1.lingo.trainer.application.GameService;
+import nl.hu.cisq1.lingo.trainer.domain.Game;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
