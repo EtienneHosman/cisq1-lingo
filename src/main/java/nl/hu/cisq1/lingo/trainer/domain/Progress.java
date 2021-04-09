@@ -13,6 +13,7 @@ public class Progress implements Serializable {
     private UUID id;
     private int round = -1;
     @OneToMany(fetch = FetchType.EAGER)
+    @Lob
     private List<Feedback> feedbackList = null;
 
     public Progress(){
