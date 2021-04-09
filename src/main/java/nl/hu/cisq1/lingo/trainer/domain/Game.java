@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -16,13 +17,14 @@ public class Game {
     private UUID id;
     @Column
     private int guesses = 0;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @Cascade(CascadeType.ALL)
     private List<Round> rounds = new ArrayList<>();
     @Column
     private Progress progress = new Progress();
     @Column
     private Status status = Status.AWAIT;
+
 
     public void startNewRound(String wordToGuess) {
         rounds.add(new Round(wordToGuess));

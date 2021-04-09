@@ -1,6 +1,5 @@
-package nl.hu.cisq1.lingo.presentation;
+package nl.hu.cisq1.lingo.trainer.presentation;
 
-import nl.hu.cisq1.lingo.trainer.presentation.GameController;
 import nl.hu.cisq1.lingo.trainer.application.GameService;
 import nl.hu.cisq1.lingo.trainer.domain.Game;
 import org.junit.jupiter.api.BeforeAll;
