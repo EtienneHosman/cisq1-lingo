@@ -10,7 +10,6 @@ import java.util.UUID;
 @RequestMapping(value = "game", method = RequestMethod.GET)
 public class GameController {
     private final GameService gameService;
-
     public GameController(GameService gameService){
         this.gameService = gameService;
     }
