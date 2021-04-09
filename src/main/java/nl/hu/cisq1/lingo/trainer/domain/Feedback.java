@@ -12,7 +12,7 @@ public class Feedback implements Serializable {
     private UUID id;
 
     private String attempt;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private List<Mark> marks;
     private String hint;
 

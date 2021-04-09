@@ -3,6 +3,8 @@ package nl.hu.cisq1.lingo.trainer.domain;
 import nl.hu.cisq1.lingo.words.domain.exception.GameEndedException;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
@@ -17,6 +19,7 @@ public class Game {
     private UUID id;
     @Column
     private int guesses = 0;
+
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(CascadeType.ALL)
     private List<Round> rounds = new ArrayList<>();

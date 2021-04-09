@@ -12,7 +12,7 @@ public class Progress implements Serializable {
     @GeneratedValue
     private UUID id;
     private int round = -1;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Feedback> feedbackList = null;
 
     public Progress(){
