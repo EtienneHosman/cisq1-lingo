@@ -30,9 +30,11 @@ public class Game {
 
 
     public void startNewRound(String wordToGuess) {
-        rounds.add(new Round(wordToGuess));
-        this.status = Status.STARTED;
-        progress.newRound(wordToGuess);
+        if(status == Status.AWAIT){
+            rounds.add(new Round(wordToGuess));
+            this.status = Status.STARTED;
+            progress.newRound(wordToGuess);
+        }
     }
 
     public void guessWord(String guess){

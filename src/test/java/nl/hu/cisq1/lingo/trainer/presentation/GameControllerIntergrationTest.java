@@ -1,6 +1,8 @@
 package nl.hu.cisq1.lingo.trainer.presentation;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.hu.cisq1.lingo.CiTestConfiguration;
+import nl.hu.cisq1.lingo.trainer.domain.Game;
 import org.apache.coyote.Request;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -28,17 +30,21 @@ class GameControllerIntergrationTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private UUID tempId;
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    private String  tempId;
 
     @BeforeEach
     void before() throws Exception {
-        RequestBuilder request = MockMvcRequestBuilders.post("/game/");
-        MvcResult result = mockMvc.perform(request).andReturn();
-        // TODO
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/game")).andReturn();
+        String json = result.getResponse().getContentAsString();
+        Game game = objectMapper.readValue(json, Game.class);
+        this.tempId = game.getId().toString();
     }
 
     @Test
-    @DisplayName("WHen game is started a game is started and gives an id")
+    @DisplayName("When game is started a game is started and gives an id")
     void startGame() throws Exception {
         RequestBuilder request = MockMvcRequestBuilders.post("/game/");
         mockMvc.perform(request)
@@ -47,15 +53,32 @@ class GameControllerIntergrationTest {
     }
 
     @Test
-    void getGame() {
-
+    @DisplayName("Can Request game")
+    void getGame() throws Exception {
+        RequestBuilder request = MockMvcRequestBuilders.get("/game/" + this.tempId);
+        mockMvc.perform(request)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").isString());
     }
 
     @Test
-    void startRound() {
+    @DisplayName("A round can be started")
+    void startRound() throws Exception{
+        RequestBuilder request = MockMvcRequestBuilders.post("/game/" + this.tempId + "/play");
+        mockMvc.perform(request)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value("STARTED"));
     }
 
     @Test
-    void guess() {
+    @DisplayName("Guesses can be made")
+    void guess() throws Exception {
+        RequestBuilder request = MockMvcRequestBuilders.post("/game/" + this.tempId + "/play");
+        mockMvc.perform(request)
+                .andExpect(status().isOk());
+        RequestBuilder request2 = MockMvcRequestBuilders.patch("/game/" + this.tempId + "/guess?guess=hallo");
+        mockMvc.perform(request2)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value("INPROGRESS"));
     }
 }
