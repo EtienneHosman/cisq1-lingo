@@ -24,6 +24,7 @@ public class Round {
     }
 
     public Feedback guessWord(String guess){
+        String feedBackMarks = "";
 
         List<Mark> marks = new ArrayList<>();
         for(int i = 0; i < guess.length(); i++){
@@ -31,10 +32,15 @@ public class Round {
                 marks.add(Mark.INVALID);
             } else if(this.wordToGuess.charAt(i) == guess.charAt(i)){
                 marks.add(Mark.CORRECT);
-            } else if(this.wordToGuess.contains(String.valueOf(guess.charAt(i)))){
-                marks.add(Mark.PRESENT);
+                feedBackMarks += ".";
             } else {
                 marks.add(Mark.ABSENT);
+                feedBackMarks += this.wordToGuess.charAt(i);
+            }
+        }
+        for(int i = 0; i < marks.size(); i++){
+            if(marks.get(i).equals(Mark.ABSENT) && feedBackMarks.contains(String.valueOf(guess.charAt(i)))){
+                marks.set(i, Mark.PRESENT);
             }
         }
 
