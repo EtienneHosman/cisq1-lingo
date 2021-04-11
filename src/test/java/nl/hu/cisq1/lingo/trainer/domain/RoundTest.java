@@ -13,9 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoundTest {
     private static Stream<Arguments> giveFeedbackExamples(){
         return Stream.of(
-                Arguments.of("cheat", "chicken", List.of(Mark.INVALID, Mark.INVALID, Mark.INVALID, Mark.INVALID, Mark.INVALID, Mark.INVALID, Mark.INVALID)),
-                Arguments.of("cheat", "chart", List.of(Mark.CORRECT, Mark.CORRECT, Mark.PRESENT, Mark.ABSENT, Mark.CORRECT)),
-                Arguments.of("cheat", "cheat", List.of(Mark.CORRECT, Mark.CORRECT, Mark.CORRECT, Mark.CORRECT, Mark.CORRECT))
+                Arguments.of("kleven", "cheese", List.of(Mark.ABSENT, Mark.ABSENT, Mark.CORRECT, Mark.PRESENT, Mark.ABSENT, Mark.PRESENT)),
+                Arguments.of("kleven", "kleef", List.of(Mark.INVALID, Mark.INVALID, Mark.INVALID, Mark.INVALID, Mark.INVALID)),
+                Arguments.of("kleven", "klaver", List.of(Mark.CORRECT, Mark.CORRECT, Mark.ABSENT, Mark.CORRECT, Mark.CORRECT, Mark.ABSENT)),
+                Arguments.of("kleven", "kelevd", List.of(Mark.CORRECT, Mark.PRESENT, Mark.PRESENT, Mark.PRESENT, Mark.PRESENT,  Mark.ABSENT)),
+                Arguments.of("kleven", "kleven", List.of(Mark.CORRECT, Mark.CORRECT, Mark.CORRECT, Mark.CORRECT, Mark.CORRECT, Mark.CORRECT))
         );
     }
 
